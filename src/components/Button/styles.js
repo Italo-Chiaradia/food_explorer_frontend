@@ -20,4 +20,5 @@ export const Container = styled.button`
   &:disabled {
     background-color: ${({theme}) => theme.COLORS.TINTS.TOMATO400};
   }
+  
 `;
