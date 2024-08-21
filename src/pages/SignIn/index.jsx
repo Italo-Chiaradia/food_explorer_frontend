@@ -7,12 +7,12 @@ export function SignIn() {
   return (
     <Container>
       
+      <header>
+        <img src={ExplorerLogo}/>
+        <h1>food explorer</h1>
+      </header>
       <form>
-        <header>
-          <img src={ExplorerLogo}/>
-          <h1>food explorer</h1>
-        </header>
-        <div>
+        <div> 
           <Input
             title="Email"
             type="email"

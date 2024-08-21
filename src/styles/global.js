@@ -1,9 +1,13 @@
 import {createGlobalStyle} from "styled-components";
+import BREAKPOINTS from "../utils/deviceBreakpoints";
 import "./reset.css";
 
 export default createGlobalStyle`
   :root {
     font-size: 62.5%;
+    @media (max-width: ${BREAKPOINTS.xs}) {
+      font-size: 55.5%;
+    }
   }
   body {
     background-color: ${({theme}) => theme.COLORS.DARK.DARK400};

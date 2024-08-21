@@ -11,7 +11,7 @@ export const Container = styled.label`
   }
   > div {
     padding: 1.6rem 1.4rem;
-    border: 1px solid transparent;
+    border: .1rem solid transparent;
     border-radius: .8rem;
     display: flex;
     align-items: center;
@@ -32,6 +32,6 @@ export const Container = styled.label`
     }
   }
   > div:focus-within {
-    border: 1px solid ${({theme}) => theme.COLORS.LIGHT.LIGHT100};
+    border: .1rem solid ${({theme}) => theme.COLORS.LIGHT.LIGHT100};
   }
 `;
