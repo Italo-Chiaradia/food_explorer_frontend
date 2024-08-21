@@ -23,6 +23,7 @@ export function SignIn() {
           placeholder="No mínimo 6 caracteres"
         />
         <Button
+          /* disabled */
           title="Entrar"
         />
         <a>

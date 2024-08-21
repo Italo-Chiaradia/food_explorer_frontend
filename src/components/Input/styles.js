@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Container = styled.label` 
   display: block;
-  margin-bottom: 3.2rem;
   span {
     color: ${({theme}) => theme.COLORS.LIGHT.LIGHT400};
     margin-bottom: .8rem;
