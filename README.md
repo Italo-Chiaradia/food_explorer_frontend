@@ -1,1 +1,1 @@
-# FoodExplorer
+# Food Explorer
