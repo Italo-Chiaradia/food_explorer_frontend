@@ -27,7 +27,7 @@ export function SignIn() {
             /* disabled */
             title="Entrar"
           />
-          <a>
+          <a href="">
             Criar uma conta
           </a>
         </div>

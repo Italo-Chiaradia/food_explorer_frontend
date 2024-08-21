@@ -43,5 +43,9 @@ export const Container = styled.div`
   a:hover {
     filter: brightness(.5);
   }
+  a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
 `;
 
