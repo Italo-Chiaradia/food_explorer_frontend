@@ -5,7 +5,7 @@ import "./reset.css";
 export default createGlobalStyle`
   :root {
     font-size: 62.5%;
-    @media (max-width: ${BREAKPOINTS.xs}) {
+    @media (max-width: ${BREAKPOINTS.sm}) {
       font-size: 55.5%;
     }
   }

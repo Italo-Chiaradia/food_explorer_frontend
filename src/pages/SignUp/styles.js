@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BREAKPOINTS from "../../utils/deviceBreakpoints";
 
 export const Container = styled.div`
   height: 100vh;
@@ -10,11 +11,10 @@ export const Container = styled.div`
   form {
     width: 31.6rem;
     /* margin: 15.8rem auto 0; */
-    > div {
-      display: flex;
-      flex-direction: column;
-      gap: 3.2rem;
-    }
+    
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
   }
   header {
     display: flex;
@@ -47,6 +47,26 @@ export const Container = styled.div`
   a:focus {
     text-decoration: underline;
     outline: none;
+  }
+
+  @media (min-width: ${BREAKPOINTS.lg}) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-inline: 10.8rem;
+    
+    form {
+      width: 40rem;
+      background-color: ${({theme}) => theme.COLORS.DARK.DARK700};
+      padding: 6.4rem;
+      border-radius: 1.6rem;
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 3.2rem; 
+        line-height: 1.4;
+        text-align: center;
+      }
+    }
   }
 `;
 

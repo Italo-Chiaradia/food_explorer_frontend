@@ -6,4 +6,9 @@ const breakpoints = {
   xl: '1440px',  // Extra large devices (large desktops)
 };
 
+export function formatDeviceBreakpoints(strBreakpoints) {
+  /* Formata valor de breakpoints para inteiro */
+  return parseInt(strBreakpoints.slice(0,-2));
+}
+
 export default breakpoints;
