@@ -3,7 +3,7 @@ import { Button } from "../../components/Button";
 import { Container } from "./styles";
 import ExplorerLogo from "../../assets/explorer-logo.svg";
 
-export function SignIn() {
+export function SignUp() {
   return (
     <Container>
       
@@ -13,6 +13,11 @@ export function SignIn() {
           <h1>food explorer</h1>
         </header>
         <div>
+          <Input
+            title="Seu nome"
+            type="text"
+            placeholder="Exemplo: Maria da Silva"
+          />
           <Input
             title="Email"
             type="email"
@@ -25,10 +30,10 @@ export function SignIn() {
           />
           <Button
             /* disabled */
-            title="Entrar"
+            title="Criar conta"
           />
           <a href="">
-            Criar uma conta
+            Já tenho uma conta
           </a>
         </div>
       </form>
