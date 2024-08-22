@@ -15,6 +15,8 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialised;
   }
   body * {
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
   }
   body, input, button, textarea {
