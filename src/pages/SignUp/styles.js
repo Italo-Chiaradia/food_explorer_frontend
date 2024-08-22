@@ -10,8 +10,6 @@ export const Container = styled.div`
 
   form {
     width: 31.6rem;
-    /* margin: 15.8rem auto 0; */
-    
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
