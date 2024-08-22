@@ -12,8 +12,10 @@ export default createGlobalStyle`
   body {
     background-color: ${({theme}) => theme.COLORS.DARK.DARK400};
     color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
-    box-sizing: border-box;
     -webkit-font-smoothing: antialised;
+  }
+  body * {
+    box-sizing: border-box;
   }
   body, input, button, textarea {
     font-size: 1.6rem;

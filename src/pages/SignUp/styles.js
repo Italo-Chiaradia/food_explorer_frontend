@@ -53,9 +53,16 @@ export const Container = styled.div`
     flex-direction: row;
     justify-content: space-between;
     margin-inline: 10.8rem;
-    
+    header > h1 {
+      font-size: 4.2rem;
+    }
+    header > img {
+      width: 4.9rem;
+      height: 4.7rem;
+    }
     form {
-      width: 40rem;
+      width: 47.6rem;
+      
       background-color: ${({theme}) => theme.COLORS.DARK.DARK700};
       padding: 6.4rem;
       border-radius: 1.6rem;
