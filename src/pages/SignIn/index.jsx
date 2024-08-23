@@ -30,10 +30,9 @@ export function SignIn() {
           type="password"
           placeholder="No mínimo 6 caracteres"
         />
-        <Button
-          /* disabled */
-          title="Entrar"
-        />
+        <Button>
+          Entrar
+        </Button>
         <a href="">
           Criar uma conta
         </a>

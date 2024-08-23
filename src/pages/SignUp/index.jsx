@@ -37,10 +37,9 @@ export function SignUp() {
           type="password"
           placeholder="No mínimo 6 caracteres"
         />
-        <Button
-          /* disabled */
-          title="Criar conta"
-        />
+        <Button>
+          Criar conta
+        </Button>
         <a href="">
           Já tenho uma conta
         </a>
