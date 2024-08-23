@@ -14,6 +14,16 @@ export const Container = styled.button`
   line-height: 2.4rem;
   cursor: pointer;
   transition: all .2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > svg {
+    font-size: 3.2rem;
+    margin-right: .8rem;
+  }
+  > span {
+    margin-left: .4rem;
+  }
   &:hover {
     background-color: ${({theme}) => theme.COLORS.TINTS.TOMATO200};
   }
