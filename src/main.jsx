@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from "./styles/global";
 import theme from "./styles/theme";
 
-import {App} from "./pages/App";
+import {App} from "./pages/App.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

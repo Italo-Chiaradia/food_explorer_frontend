@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BREAKPOINTS from "../../utils/deviceBreakpoints";
+import ExplorerLogo from "../../assets/svg/explorer-logo.svg?react";
 
 export const Container = styled.header`
   grid-area: header;
@@ -65,17 +66,12 @@ export const Logo = styled.div`
   gap: .8rem;
   div {
     display: flex;
-    align-items: end;
-    
+    align-items: center;
     gap: .8rem;
   }
   div > h1 {
     font-size: 2.1rem;
     font-weight: 700;
-  }
-  div > svg {
-    font-size: 2.5rem;
-    color: ${({theme}) => theme.COLORS.TINTS.CAKE100};
   }
   > span {
     font-size: 1.2rem;
@@ -93,6 +89,11 @@ export const Logo = styled.div`
       flex: none;
     }
   } 
+`;
+
+export const StyledLogo = styled(ExplorerLogo)`
+  width: 2.5rem;
+  height: 2.5rem;
 `;
 
 export const Orders = styled.button`

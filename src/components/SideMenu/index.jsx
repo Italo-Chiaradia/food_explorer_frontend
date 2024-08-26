@@ -1,8 +1,8 @@
-import { Container, NavButton, Content } from "./styles";
+import { Container, NavButton, Content, StyledClose } from "./styles";
 import { Input } from "../Input";
 import { Footer } from "../Footer";
 import { RiSearchLine } from "react-icons/ri";
-import CloseIcon from "../../assets/Close.svg";
+
 export function SideMenu({menuIsOpen, onCloseMenu, user}) {
   const role = user.role;
   return (
@@ -10,7 +10,7 @@ export function SideMenu({menuIsOpen, onCloseMenu, user}) {
       <header>
         <div>
           <button onClick={onCloseMenu}>
-            <img src={CloseIcon}/>
+            <StyledClose/>
           </button>
           Menu
         </div>

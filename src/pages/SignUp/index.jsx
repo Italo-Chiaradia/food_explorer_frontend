@@ -3,10 +3,9 @@ import { Button } from "../../components/Button";
 import { Container } from "./styles";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
-import ExplorerLogo from "../../assets/explorer-logo.svg";
+import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 
 export function SignUp() {
-  
   const isDesktop = useMediaQuery(
     {
       minWidth: formatDeviceBreakpoints(BREAKPOINTS.lg)

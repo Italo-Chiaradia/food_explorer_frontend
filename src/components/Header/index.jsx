@@ -5,9 +5,10 @@ import { PiReceipt } from "react-icons/pi";
 import { RiMenuFill } from "react-icons/ri";
 import { RiSearchLine } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive"; 
-import { BsFillHexagonFill } from "react-icons/bs";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
-import { Container, Menu, Logo, Orders, LogOutButton } from "./styles";
+import { Container, Menu, Logo, Orders, LogOutButton, StyledLogo } from "./styles";
+
+
 
 export function Header({onOpenMenu, user}) {
   const role = user.role;
@@ -24,7 +25,7 @@ export function Header({onOpenMenu, user}) {
         }
         <Logo data-role={role}>
           <div>
-            <BsFillHexagonFill /> 
+            <StyledLogo/>
             <h1>food explorer</h1>
           </div>
           {

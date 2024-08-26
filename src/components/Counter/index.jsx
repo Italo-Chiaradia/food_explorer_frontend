@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 
-import { PiMinusThin } from "react-icons/pi";
-import { PiPlusThin } from "react-icons/pi";
+import { PiMinusThin as Plus } from "react-icons/pi";
+import { PiPlusThin as Minus } from "react-icons/pi";
 
 import {useState} from "react";
 
@@ -23,13 +23,13 @@ export function Counter() {
   return (
     <Container>
       <button onClick={() => handleMinusCount()}>
-        <PiMinusThin />
+        <Plus />
       </button>
       <span>
         {String(count).padStart(2, '0')}
       </span>
       <button onClick={() => handlePlusCount()}>
-        <PiPlusThin />
+        <Minus />
       </button>
     </Container>
   );

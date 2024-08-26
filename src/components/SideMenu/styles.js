@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Close from "../../assets/svg/close.svg?react";
 
 export const Container = styled.div`
   width: 100%;
@@ -32,14 +33,6 @@ export const Container = styled.div`
       border: none;
       cursor: pointer;  
       margin-right: 1.6rem;
-      > img {
-        width: 1.8rem;
-        height: 1.8rem;
-        transition: filter .2s;
-      }
-      > img:hover {
-        filter: brightness(.5)
-      }
     }
     
   }
@@ -70,3 +63,12 @@ export const NavButton = styled.button`
     color: ${({theme}) => theme.COLORS.TINTS.CAKE100};
   }
 `;
+
+export const StyledClose = styled(Close)`
+  width: 1.8rem;
+  height: 1.8rem;
+  transition: filter .2s;
+  &:hover {
+    filter: brightness(.5)
+  }
+`

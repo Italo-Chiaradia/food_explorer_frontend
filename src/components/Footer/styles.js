@@ -16,11 +16,11 @@ export const Container = styled.footer`
     gap: 1.6rem;
     flex-direction: column;
 
-    > span {
+    > div {
       font-size: 1.4rem;
     }
 
-    > span:first-child {
+    > div:first-child {
       display: flex;
       align-items: center;
       font-size: 1.57rem;
@@ -39,7 +39,7 @@ export const Container = styled.footer`
       flex-direction: row;
     }
 
-    > div > span:first-child {
+    > div > div:first-child {
       font-size: 2.4rem;
       gap: 1.1rem;
 
