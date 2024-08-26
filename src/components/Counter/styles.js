@@ -6,8 +6,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 1.4rem;
   > span {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.6rem;
   }
   > button {
     display: flex;
@@ -16,11 +15,14 @@ export const Container = styled.div`
     border: none;
     color: ${({theme}) => theme.COLORS.LIGHT.LIGHT100};
     cursor:pointer;
-    > svg {
-      font-size: 2.4rem;
+    
+    > img {
+      width: 1.8rem;
+      height: 1.8rem;
+      transition: filter .2s
     }
-    > svg:hover {
-      filter: brightness(.5);
-    }
+  }
+  > button:hover img {
+    filter: brightness(.5);
   }
 `;
