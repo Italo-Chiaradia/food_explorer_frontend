@@ -1,19 +1,19 @@
+import Edit from "../../assets/svg/edit.svg";
+import Favorite from "../../assets/svg/favorite.svg";
+import maracuja from "../../assets/maracuja.png";
+import NotFavorite from "../../assets/svg/not-favorite.svg";
 import { Button } from "../Button";
 import { Counter } from "../Counter";
-import { FaHeart } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa";
-import { Container, Image, Title, Price, FavoriteButton } from "./styles";
-import torrada from "../../assets/maracuja.png";
+import { useState } from "react";
+import { Container, Image, Title, Price, TopCornerButton } from "./styles";
 
-import {useState} from "react";
-
-export function Card({data}) {
+export function Card({user, data}) {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Container>
-      <Image src={torrada} alt="Torrada de parma" />
+      <Image src={maracuja} alt="Torrada de parma" />
 
       <Title>
         {data.title + " >"}
@@ -22,18 +22,30 @@ export function Card({data}) {
         {"R$ " + data.price}
       </Price>
 
-      <div>
-        <Counter/>
-        <Button>
-          incluir
-        </Button>
-      </div>
+      {
+        user.role !== "admin" && (
+          <div>
+            <Counter/>
+            <Button>
+              incluir
+            </Button>
+          </div>
+        )
+      }
       
-      <FavoriteButton onClick={() => setIsFavorite(prevState => !prevState)}>
-        {
-          isFavorite ? <FaHeart /> : <FaRegHeart /> 
-        }
-      </FavoriteButton>
+      {
+        user.role !== "admin" ? (
+          <TopCornerButton onClick={() => setIsFavorite(prevState => !prevState)}>
+            {
+              isFavorite ? <img src={NotFavorite}/> : <img src={Favorite}/>
+            }
+          </TopCornerButton>
+        ) : (
+          <TopCornerButton>
+            <img src={Edit}/>
+          </TopCornerButton>
+        )
+      }
     </Container>
   );
 }

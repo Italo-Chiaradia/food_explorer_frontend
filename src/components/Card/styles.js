@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   position: relative;
   width: 21rem;
+  min-height: 29.2rem;
   padding: 2.4rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 1.2rem;
   background-color: ${({theme}) => theme.COLORS.DARK.DARK200};
@@ -39,19 +41,18 @@ export const Price = styled.span`
   color: ${({theme}) => theme.COLORS.TINTS.CAKE200}
 `;
 
-export const FavoriteButton = styled.button`
+export const TopCornerButton = styled.button`
   position: absolute;
   right: 1.6rem;
   top: 1.6rem;
   background-color: inherit;
   border: none;
   cursor: pointer;
-  > svg {
-    color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
-    font-size: 2.4rem;
-    transform: filter .2s;
+  > img {
+    width: 2.4rem;
+    transition: filter .2s;
   }
-  > svg:hover {
+  > img:hover {
     filter: brightness(.5);
   }
 `;
