@@ -51,7 +51,7 @@ export function Card({user, data}) {
         user.role !== "admin" ? (
           <TopCornerButton onClick={() => setIsFavorite(prevState => !prevState)}>
             {
-              isFavorite ? <img src={NotFavorite}/> : <img src={Favorite}/>
+              !isFavorite ? <img src={NotFavorite}/> : <img src={Favorite}/>
             }
           </TopCornerButton>
         ) : (

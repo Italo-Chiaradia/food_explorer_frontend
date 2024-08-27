@@ -7,7 +7,7 @@ export const Container = styled.footer`
   background-color: ${({ theme }) => theme.COLORS.DARK.DARK700};
   display: grid;
   place-items: center;
-
+  z-index: 2;
   > div {
     width: 80%;
     display: flex;

@@ -6,11 +6,10 @@ export const Container = styled.div`
   height: 100vh;
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 11.4rem auto 7.7rem;
+  grid-template-rows: 11.4rem auto;
   grid-template-areas: 
     "header"
-    "content"
-    "footer";
+    "content";
   top: 0;
   left: 0;
   z-index: 1;
@@ -33,14 +32,13 @@ export const Container = styled.div`
       border: none;
       cursor: pointer;  
       margin-right: 1.6rem;
-    }
-    
+    } 
   }
-  
 `;
 export const Content = styled.div`
   grid-area: content;
   padding: 3.6rem 2.8rem;
+  background-color: ${({theme}) => theme.COLORS.DARK.DARK400};
   > nav {
     margin-top: 3.6rem; 
   }

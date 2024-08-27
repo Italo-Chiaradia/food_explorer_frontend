@@ -6,7 +6,6 @@ export const Container = styled.div`
   width: 21rem;
   min-height: 29.2rem;
   padding: 2.4rem;
-  margin: 2rem;
   background-color: ${({theme}) => theme.COLORS.DARK.DARK200};
   border-radius:  .8rem;
 
