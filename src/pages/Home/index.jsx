@@ -1,11 +1,12 @@
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import BannerImg from "../../assets/banner.png";
+import BannerImgDesktop from "../../assets/banner-desktop.png";
 import { Category } from "../../components/Category";
 import { SideMenu } from "../../components/SideMenu";
 import { useState } from "react";
-import { Container, Content, Banner } from "./styles";
-
+import { Container, Content, Banner, ScrollContent } from "./styles";
+import BREAKPOINTS from "../../utils/deviceBreakpoints";
 import dishes from "./dishes.json";
 
 export function Home() {
@@ -18,31 +19,38 @@ export function Home() {
         onOpenMenu={() => setMenu(true)}
         user={user}
       />
-      <Content>
-        <Banner>
-          <img src={BannerImg} alt="" />
-          <div>
-            <h2>Sabores inigualáveis</h2>
-            <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
-          </div>
-        </Banner>
-        <Category 
-          title="Refeições"
-          dishes={dishesArray}
-          user={user}
-        />
-        <Category 
-          title="Refeições"
-          dishes={dishesArray}
-          user={user}
-        />
-        <Category 
-          title="Refeições"
-          dishes={dishesArray}
-          user={user}
-        />
-      </Content>
-      <Footer/>
+      <ScrollContent>
+        <Content>
+          <Banner>
+            <picture>
+              <source media={`(min-width: ${BREAKPOINTS.xs})`} srcSet={BannerImgDesktop}/>
+              
+              <img src={BannerImg}/>
+            </picture>
+
+            <div>
+              <h2>Sabores inigualáveis</h2>
+              <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
+            </div>
+          </Banner>
+          <Category 
+            title="Refeições"
+            dishes={dishesArray}
+            user={user}
+          />
+          <Category 
+            title="Pratos principais"
+            dishes={dishesArray}
+            user={user}
+          />
+          <Category 
+            title="Bebidas"
+            dishes={dishesArray}
+            user={user}
+          />
+        </Content>
+        <Footer/>
+      </ScrollContent>
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
