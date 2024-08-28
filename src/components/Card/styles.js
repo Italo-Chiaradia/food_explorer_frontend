@@ -63,17 +63,26 @@ export const Title = styled.h1`
   font-weight: 500;
   line-height: 2.4rem;
   @media (min-width: ${BREAKPOINTS.sm}) {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1.4;
   }
 `;
 
 export const Description = styled.span`
-  font-size: 1.4rem;
+  width: 100%;
+  height: auto; /* Permitir ajuste automático da altura */
+  overflow: hidden;
+  display: block; /* Definir como bloco para aplicar o line-clamp */
   text-align: center;
+  font-size: 1.4rem;
   line-height: 1.6;
-  color: ${({theme}) => theme.COLORS.LIGHT.LIGHT400}
+  color: ${({ theme }) => theme.COLORS.LIGHT.LIGHT400};
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Número máximo de linhas a serem exibidas */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* Adicionar reticências no final */
+  white-space: normal; /* Permitir quebra de linha */
 `;
 
 export const Price = styled.span`
