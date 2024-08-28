@@ -134,6 +134,7 @@ export const Banner = styled.div`
       font-family: "Poppins", sans-serif;
       font-weight: 500;
       line-height: 1.4;
+      margin-bottom: 8px;
     }
     > div > p {
       font-size: 1.6rem;

@@ -14,6 +14,16 @@
       "title": "Filé Mignon",
       "description": "Filé mignon grelhado, servido com molho madeira e acompanhado de purê de batatas",
       "price": "89,90"
+    },
+    {
+      "title": "Peixe Grelhado",
+      "description": "Filé de peixe grelhado, servido com legumes ao vapor e azeite de ervas",
+      "price": "74,30"
+    },
+    {
+      "title": "Sopa de Abóbora",
+      "description": "Sopa cremosa de abóbora com um toque de gengibre e croutons crocantes",
+      "price": "39,20"
     }
   ]
 }
