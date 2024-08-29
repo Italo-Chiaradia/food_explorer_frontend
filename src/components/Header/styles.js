@@ -35,6 +35,7 @@ export const Container = styled.header`
       }
     }
     @media (min-width: ${BREAKPOINTS.lg}) {
+      max-width: 112rem;
       .search-bar label > div {
         justify-content: center;
         > input {
