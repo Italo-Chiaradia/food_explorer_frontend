@@ -15,12 +15,17 @@ export const Container = styled.div`
 
 export const ScrollContent = styled.div`
   grid-area: scrollcontent;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 7.7rem;
+  grid-template-areas: 
+  "content"
+  "footer";
   overflow-y: auto;
 `;
 
 export const Content = styled.main`
   grid-area: content;
-  overflow-y: auto;
   @media (min-width: ${BREAKPOINTS.sm}) {
     max-width: min(90vw, 112rem);
     margin: 0 auto;

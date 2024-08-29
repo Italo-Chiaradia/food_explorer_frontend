@@ -10,7 +10,7 @@ import BREAKPOINTS from "../../utils/deviceBreakpoints";
 import dishes from "./dishes.json";
 
 export function Home() {
-  const user = {role: "costumer"}
+  const user = {role: "admin"}
   const dishesArray = dishes.DISHES;
   const [menu, setMenu] = useState(false);
   return(
