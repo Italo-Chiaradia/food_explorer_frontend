@@ -21,8 +21,10 @@ export const ScrollContent = styled.div`
 export const Content = styled.main`
   grid-area: content;
   overflow-y: auto;
-  max-width: min(90vw, 112rem);
-  margin: 0 auto;
+  @media (min-width: ${BREAKPOINTS.sm}) {
+    max-width: min(90vw, 112rem);
+    margin: 0 auto;
+  }
 `;
 
 export const Banner = styled.div`
