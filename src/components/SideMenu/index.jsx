@@ -1,5 +1,6 @@
 import { Container, NavButton, Content, StyledClose } from "./styles";
 import { Input } from "../Input";
+import { Footer } from "../Footer";
 import { RiSearchLine } from "react-icons/ri";
 export function SideMenu({isMenuOpen, onCloseMenu, user}) {
   const role = user.role;
@@ -32,6 +33,7 @@ export function SideMenu({isMenuOpen, onCloseMenu, user}) {
             
         </nav>
       </Content>
+      <Footer/>
     </Container>
   )
 }
