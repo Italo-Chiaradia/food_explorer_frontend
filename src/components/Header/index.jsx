@@ -1,4 +1,4 @@
-import { Input } from "../Input";
+import { InputAuth } from "../InputAuth";
 import { Button } from "../Button";
 import { FiLogOut } from "react-icons/fi";
 import { PiReceipt } from "react-icons/pi";
@@ -35,7 +35,7 @@ export function Header({onOpenMenu, user}) {
         {
           isDesktop &&
           <div className="search-bar">
-            <Input 
+            <InputAuth 
               icon={RiSearchLine}
               type="text"
               placeholder="Busque por pratos ou ingredientes"

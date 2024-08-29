@@ -1,5 +1,5 @@
 import { Container, NavButton, Content, StyledClose } from "./styles";
-import { Input } from "../Input";
+import { InputAuth } from "../InputAuth";
 import { Footer } from "../Footer";
 import { RiSearchLine } from "react-icons/ri";
 export function SideMenu({isMenuOpen, onCloseMenu, user}) {
@@ -15,7 +15,7 @@ export function SideMenu({isMenuOpen, onCloseMenu, user}) {
         </div>
       </header>
       <Content>
-        <Input
+        <InputAuth
           icon={RiSearchLine}
           type="text"
           placeholder="Busque por pratos ou ingredientes"

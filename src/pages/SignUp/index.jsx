@@ -1,6 +1,6 @@
-import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Container } from "./styles";
+import { InputAuth } from "../../components/InputAuth";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
@@ -21,17 +21,17 @@ export function SignUp() {
       </header>
       <form>
         {isDesktop && <h2>Crie sua conta</h2>}
-        <Input
+        <InputAuth
           title="Seu nome"
           type="text"
           placeholder="Exemplo: Maria da Silva"
         />
-        <Input
+        <InputAuth
           title="Email"
           type="email"
           placeholder="Exemplo: exemplo@exemplo.com.br"
         />
-        <Input
+        <InputAuth
           title="Senha"
           type="password"
           placeholder="No mínimo 6 caracteres"
