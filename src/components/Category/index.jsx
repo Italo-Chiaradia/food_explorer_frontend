@@ -35,7 +35,7 @@ export function Category({user, title, dishes}) {
       >
         {
           dishes.map((dish, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={String(index)}>
               <Card user={user} data={dish}/>
             </SwiperSlide>
           ))
