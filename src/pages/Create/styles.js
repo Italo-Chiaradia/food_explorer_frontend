@@ -40,11 +40,49 @@ export const Content = styled.form`
       width: .8rem;
     }
   }
+  @media (min-width: ${BREAKPOINTS.sm}) {
+    max-width: min(90vw, 112rem);
+    margin-inline: auto;
+    margin-top: 4rem;
+    margin-bottom: 11.6rem;
+    gap: 3.2rem;
+    > a {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      > img {
+        width: 1.2rem;
+      }
+    } 
+    > button {
+      width: fit-content;
+      align-self: end;
+    }
+  }
   > h2 {
     font-family: "Poppins", sans-serif;
     font-size: 3.2rem;
     font-weight: 500;
     line-height: 1.4;
+  }
+
+  > .cols3 {
+    display: grid;
+    grid-template-columns:  1fr 2fr 1fr;
+    column-gap: 3.2rem;
+  }
+  > .cols2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 3.2rem;
+  }
+  > .flexContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
   }
 `;
 

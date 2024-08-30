@@ -5,15 +5,13 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyles from "./styles/global";
 import theme from "./styles/theme";
 
-import {Home} from "./pages/Home";
-import dishes from "./pages/Home/dishes.json";
-const user = {role: "admin"}
-const dishesArray = dishes.DISHES;
+import {Create} from "./pages/Create";
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-      <Home/>
+      <Create/>
     </ThemeProvider>
   </StrictMode>,
 )
