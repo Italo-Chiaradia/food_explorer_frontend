@@ -14,7 +14,7 @@ export const Container = styled.footer`
     justify-content: space-between;
     align-items: center;
     gap: 1.6rem;
-    flex-direction: column;
+    flex-direction: row;
 
     > div {
       font-size: 1.4rem;
@@ -33,12 +33,12 @@ export const Container = styled.footer`
       }
     }
   }
-
-  @media (min-width: ${BREAKPOINTS.xs}) {
+  @media (max-width: ${"362px"}) {
     > div {
-      flex-direction: row;
+      flex-direction: column;
     }
-
+  }
+  @media (min-width: ${BREAKPOINTS.xs}) {
     > div > div:first-child {
       font-size: 2.4rem;
       gap: 1.1rem;

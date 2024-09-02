@@ -1,17 +1,18 @@
+import dishes from "./dishes.json";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import BannerImg from "../../assets/banner.png";
-import BannerImgDesktop from "../../assets/banner-desktop.png";
 import { Category } from "../../components/Category";
 import { SideMenu } from "../../components/SideMenu";
 import { useState } from "react";
-import { Container, Content, Banner, ScrollContent } from "./styles";
 import BREAKPOINTS from "../../utils/deviceBreakpoints";
-import dishes from "./dishes.json";
+import BannerImgDesktop from "../../assets/banner-desktop.png";
+import { Container, Content, Banner, ScrollContent } from "./styles";
 
 export function Home() {
-  const user = {role: "admin"}
+  const user = {role: "costumer"}
   const dishesArray = dishes.DISHES;
+
   const [menu, setMenu] = useState(false);
   return(
     <Container>

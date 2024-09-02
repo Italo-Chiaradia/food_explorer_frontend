@@ -13,10 +13,11 @@ import { Container, ScrollContent, Content } from "./styles.js";
 import { useMediaQuery } from "react-responsive"; 
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 export function Details() {
-  const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.md)});
-  const user = {"role":""}
-  const [menu, setMenu] = useState(false);
+  const user = {"role":"admin"}
   const tags = ["alface", "cebola", "pão naan", "pepino", "rabanete", "tomate"];
+
+  const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.md)});
+  const [menu, setMenu] = useState(false);
   return (
     <Container>
       <Header 

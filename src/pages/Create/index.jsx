@@ -10,15 +10,25 @@ import { TextArea } from "../../components/TextArea";
 import { useState } from "react";
 import { SideMenu } from "../../components/SideMenu";
 import { InputNumber } from "../../components/InputNumber";
+import {useMediaQuery} from "react-responsive";
+import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints.js";
 import { Container, ScrollContent, Content, TagContainer } from "./styles.js";
 
-import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints.js";
-import {useMediaQuery} from "react-responsive";
 
 export function Create() {
   const user = {role: "admin"}
+
   const [menu, setMenu] = useState(false);
-  const tags = ["Pão de naan"];
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState("");
+  
+  function handleNewTag() {
+    setTags(prevState => [...prevState, newTag]);
+    setNewTag("");
+  }
+  function handleRemoveTag(deleted) {
+    setTags(prevTags => prevTags.filter(tag => tag != deleted));
+  }
 
   const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.sm)});
 
@@ -58,16 +68,20 @@ export function Create() {
             <Section title="Ingredientes">
               <TagContainer>
                 {
-                  tags && tags.map((tag, index) => {
+                  tags.map((tag, index) => {
                     return <TagItem  
                       key={String(index)}
                       value={tag}
+                      onClick={() => handleRemoveTag(tag)}
                     />    
                   })
                 }
                 <TagItem
                   isNew
                   placeholder="Adicionar"
+                  value={newTag}
+                  onChange={e => setNewTag(e.target.value)}
+                  onClick={handleNewTag}
                 />
               </TagContainer>
             </Section>

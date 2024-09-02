@@ -11,7 +11,7 @@ export function App() {
   const user = {role: "costumer"};
   return (
     <Container>
-      <Card user={{role: "admin"}} data={{
+      <Card user={{role: "costumer"}} data={{
         img:{},
         title:"Torradas de Parma",
         description: "Presunto de parma e rúcula em um pão com fermentação natural.",

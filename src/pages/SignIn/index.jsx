@@ -1,23 +1,19 @@
 import { Button } from "../../components/Button";
 import { Container } from "./styles";
 import { InputAuth } from "../../components/InputAuth";
+import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, { formatDeviceBreakpoints } from "../../utils/deviceBreakpoints";
-import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 
 export function SignIn() {
-  const isDesktop = useMediaQuery(
-    {
-      minWidth: formatDeviceBreakpoints(BREAKPOINTS.lg)
-    }
-  );
+  const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.lg)});
   return (
     <Container>
-      
       <header>
         <img src={ExplorerLogo}/>
         <h1>food explorer</h1>
       </header>
+
       <form>
         {isDesktop && <h2>Faça login</h2>}
         <InputAuth
@@ -36,9 +32,7 @@ export function SignIn() {
         <a href="">
           Criar uma conta
         </a>
- 
       </form>
- 
     </Container>
   );
 }
