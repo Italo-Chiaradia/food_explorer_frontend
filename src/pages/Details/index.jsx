@@ -1,5 +1,6 @@
 import Dish from "../../assets/torrada.png";
 import { Tag } from "../../components/Tag";
+import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
@@ -9,10 +10,16 @@ import { useState } from "react";
 import { SideMenu } from "../../components/SideMenu";
 import { PiReceipt } from "react-icons/pi";
 import { Container, ScrollContent, Content } from "./styles.js";
-
 import { useMediaQuery } from "react-responsive"; 
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
+import { useNavigate } from "react-router-dom";
 export function Details() {
+  const navigate = useNavigate();
+
+  function handleUpdate() {
+    navigate("/update");
+  }
+
   const user = {"role":"admin"}
   const tags = ["alface", "cebola", "pão naan", "pepino", "rabanete", "tomate"];
 
@@ -27,10 +34,10 @@ export function Details() {
       <ScrollContent>
         <Content>
           <div className="dish-image">  
-            <a href="">
+            <Link to={-1}>
               <img src={BackArrow} />
               voltar
-            </a>
+            </Link>
             <img src={Dish} />
           </div>
 
@@ -52,7 +59,7 @@ export function Details() {
             <div className="dish-count">
               {
                 user.role === "admin" ? (
-                  <Button>
+                  <Button onClick={() => handleUpdate()}>
                     Editar prato
                   </Button>
                 ) : (

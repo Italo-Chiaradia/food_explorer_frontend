@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Header } from "../../components/Header";
@@ -40,10 +41,10 @@ export function Create() {
       />
       <ScrollContent>
         <Content>
-          <a href="">
+          <Link to="/">
             <img src={BackArrow}/>
             voltar
-          </a>
+          </Link>
           <h2>
             {!isDesktop ? "Novo prato" : "Adicionar prato"}
           </h2>

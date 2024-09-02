@@ -10,7 +10,7 @@ import BannerImgDesktop from "../../assets/banner-desktop.png";
 import { Container, Content, Banner, ScrollContent } from "./styles";
 
 export function Home() {
-  const user = {role: "costumer"}
+  const user = {role: "admin"}
   const dishesArray = dishes.DISHES;
 
   const [menu, setMenu] = useState(false);

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Header } from "../../components/Header";
@@ -11,7 +12,6 @@ import { useState } from "react";
 import { SideMenu } from "../../components/SideMenu";
 import { InputNumber } from "../../components/InputNumber";
 import { Container, ScrollContent, Content, TagContainer } from "./styles.js";
-
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints.js";
 import {useMediaQuery} from "react-responsive";
 
@@ -30,10 +30,10 @@ export function Update() {
       />
       <ScrollContent>
         <Content>
-          <a href="">
+          <Link to={-1}>
             <img src={BackArrow}/>
             voltar
-          </a>
+          </Link>
           <h2>
             Editar prato
           </h2>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Container } from "./styles";
 import { InputAuth } from "../../components/InputAuth";
@@ -29,9 +30,9 @@ export function SignIn() {
         <Button>
           Entrar
         </Button>
-        <a href="">
+        <Link to="/register">
           Criar uma conta
-        </a>
+        </Link>
       </form>
     </Container>
   );

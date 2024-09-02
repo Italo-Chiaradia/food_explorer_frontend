@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import BREAKPOINTS from "../../utils/deviceBreakpoints";
 import ExplorerLogo from "../../assets/svg/explorer-logo.svg?react";
 
@@ -61,7 +62,7 @@ export const Menu = styled.button`
   }
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
   display: flex;
   align-items: center;
   gap: .8rem;

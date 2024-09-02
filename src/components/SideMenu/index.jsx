@@ -1,9 +1,16 @@
-import { Container, NavButton, Content, StyledClose } from "./styles";
-import { InputAuth } from "../InputAuth";
 import { Footer } from "../Footer";
+import { InputAuth } from "../InputAuth";
 import { RiSearchLine } from "react-icons/ri";
+import { Container, NavButton, Content, StyledClose } from "./styles";
+import { useNavigate } from "react-router-dom";
 export function SideMenu({isMenuOpen, onCloseMenu, user}) {
+  const navigate = useNavigate();
+  function handleCreate() {
+    navigate("/new");
+  }
+
   const role = user.role;
+
   return (
     <Container data-is-menu-open={isMenuOpen}>
       <header>
@@ -23,7 +30,7 @@ export function SideMenu({isMenuOpen, onCloseMenu, user}) {
         <nav>
           {
             role === "admin" && 
-              <NavButton>
+              <NavButton onClick={() => handleCreate()}>
                 Novo prato
               </NavButton>
           }

@@ -1,14 +1,14 @@
 import Edit from "../../assets/svg/edit.svg";
 import Favorite from "../../assets/svg/favorite.svg";
-import NotFavorite from "../../assets/svg/not-favorite.svg";
-import torrada from "../../assets/torrada.png";
 import { Button } from "../Button";
 import { Counter } from "../Counter";
 import { useState } from "react";
+import NotFavorite from "../../assets/svg/not-favorite.svg";
+import { useMediaQuery } from "react-responsive";
+import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 import { Container, Footer, Image, Title, Price, TopCornerButton, Description } from "./styles";
 
-import {useMediaQuery} from "react-responsive";
-import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
+import torrada from "../../assets/torrada.png";
 
 export function Card({user, data}) {
 
@@ -22,7 +22,7 @@ export function Card({user, data}) {
     <Container>
       <Image src={torrada} alt="Torrada de parma" />
 
-      <Title>
+      <Title to="/details">
         {data.title + " >"}
       </Title>
       {
@@ -55,7 +55,7 @@ export function Card({user, data}) {
             }
           </TopCornerButton>
         ) : (
-          <TopCornerButton>
+          <TopCornerButton to="/update">
             <img src={Edit}/>
           </TopCornerButton>
         )

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import BREAKPOINTS from "../../utils/deviceBreakpoints";
 
 export const Container = styled.div`
@@ -49,11 +50,15 @@ export const Image = styled.img`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled(Link)`
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
   @media (min-width: ${BREAKPOINTS.sm}) {
     font-size: 2rem;
     font-weight: 600;
@@ -86,7 +91,7 @@ export const Price = styled.span`
   }
 `;
 
-export const TopCornerButton = styled.button`
+export const TopCornerButton = styled(Link)`
   position: absolute;
   right: 1.6rem;
   top: 1.6rem;

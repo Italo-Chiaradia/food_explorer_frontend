@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { Container } from "./styles";
 import { InputAuth } from "../../components/InputAuth";
+import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
-import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 
 export function SignUp() {
   const isDesktop = useMediaQuery(
@@ -39,9 +40,9 @@ export function SignUp() {
         <Button>
           Criar conta
         </Button>
-        <a href="">
+        <Link to={-1}>
           Já tenho uma conta
-        </a>
+        </Link>
       </form>
  
     </Container>
