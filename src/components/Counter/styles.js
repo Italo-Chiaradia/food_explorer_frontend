@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import BREAKPOINTS from "../../utils/deviceBreakpoints";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -24,5 +24,16 @@ export const Container = styled.div`
   }
   > button:hover img {
     filter: brightness(.5);
+  }
+  @media (min-width: ${BREAKPOINTS.sm}) {
+    > span {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+    > button > img {
+        width: 2rem;
+        height: 2rem;
+    }
   }
 `;

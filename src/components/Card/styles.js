@@ -33,14 +33,6 @@ export const Footer = styled.footer`
   }
   @media (min-width: ${BREAKPOINTS.sm}) {
     flex-direction: row;
-    > div {
-      > span {
-        font-size: 2rem;
-        font-weight: 700;
-        line-height: 1.6;
-      }
-      flex: 1;
-    }
     > button {
       flex: 1;
       padding-block: 1.2rem;
