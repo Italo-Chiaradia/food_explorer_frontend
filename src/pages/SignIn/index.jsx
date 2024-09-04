@@ -6,8 +6,20 @@ import ExplorerLogo from "../../assets/svg/explorer-logo.svg";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, { formatDeviceBreakpoints } from "../../utils/deviceBreakpoints";
 
+import { useAuth } from "../../hook/auth";
+import { useState } from "react";
+
 export function SignIn() {
   const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.lg)});
+  const { signIn } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSignIn(e) {
+    e.preventDefault();
+    signIn({email, password});
+  }
   return (
     <Container>
       <header>
@@ -20,14 +32,18 @@ export function SignIn() {
         <InputAuth
           title="Email"
           type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
           placeholder="Exemplo: exemplo@exemplo.com.br"
         />
         <InputAuth
           title="Senha"
           type="password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
           placeholder="No mínimo 6 caracteres"
         />
-        <Button>
+        <Button onClick={handleSignIn}>
           Entrar
         </Button>
         <Link to="/register">
