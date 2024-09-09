@@ -30,9 +30,7 @@ export function InputNumber({value, onChange, maxConsecutiveZeros=2}) {
   return (
     <StyledNumericFormat
       value={value}
-      onValueChange={(values) => {
-        onChange(values.value)
-      }}
+      onChange={onChange}
       thousandSeparator="."
       decimalSeparator=","
       prefix="R$ "

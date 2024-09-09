@@ -10,15 +10,12 @@ function AuthProvider({children}) {
       return alert("Preencha todos os campos");
     }
     try {
-      const response = await api.post("/sessions", {email, password});
-      const {user, token} = response.data;
+      const response = await api.post("/sessions", {email, password}, {withCredentials: true});
+      const {user} = response.data;
 
       localStorage.setItem("@foodexplorer:user", JSON.stringify(user));
-      localStorage.setItem("@foodexplorer:token", token);
 
-      api.defaults.headers.authorization = `Bearer ${token}`;
-
-      setData({user, token});
+      setData({user});
     } catch(error) {
       if (error.response) { 
         alert(error.response.data.message);
@@ -30,19 +27,15 @@ function AuthProvider({children}) {
 
   function signOut() {
     localStorage.removeItem("@foodexplorer:user");
-    localStorage.removeItem("@foodexplorer:token");
 
     setData({});
   }
 
   useEffect(() => {
     const user = localStorage.getItem("@foodexplorer:user");
-    const token = localStorage.getItem("@foodexplorer:token");
 
-    if (user && token) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
-
-      setData({user: JSON.stringify(user), token});
+    if (user) {
+      setData({user: JSON.parse(user)});
     }
   }, []);
 

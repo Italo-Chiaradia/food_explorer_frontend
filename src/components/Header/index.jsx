@@ -7,20 +7,22 @@ import { RiSearchLine } from "react-icons/ri";
 import { useMediaQuery } from "react-responsive"; 
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 import { Container, Menu, Logo, Orders, LogOutButton, StyledLogo } from "./styles";
-import { useNavigate } from "react-router-dom";
 
-export function Header({onOpenMenu, user}) {
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hook/auth";
+
+export function Header({onOpenMenu, search}) {
   const navigate = useNavigate();
   function handleCreate() {
     navigate("/new");
   }
+  const {signOut, user} = useAuth();
 
   const role = user.role;
   const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.sm)})
   return (
     <Container>
       <div>
-        
         {
           !isDesktop &&
           <Menu onClick={onOpenMenu}>
@@ -43,6 +45,9 @@ export function Header({onOpenMenu, user}) {
               icon={RiSearchLine}
               type="text"
               placeholder="Busque por pratos ou ingredientes"
+              onChange={
+                (e) => {search(e.target.value)}
+              }
             />
           </div>
         }
@@ -72,7 +77,7 @@ export function Header({onOpenMenu, user}) {
         }
         {
           isDesktop && 
-          <LogOutButton>
+          <LogOutButton onClick={signOut}>
             <FiLogOut/>
           </LogOutButton>
         }

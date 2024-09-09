@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { Select } from "../../components/Select";
 import { Header } from "../../components/Header";
@@ -15,14 +15,61 @@ import {useMediaQuery} from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints.js";
 import { Container, ScrollContent, Content, TagContainer } from "./styles.js";
 
+import {api} from "../../services/api.js";
+import {useAuth} from "../../hook/auth";
 
 export function Create() {
-  const user = {role: "admin"}
+  const {user} = useAuth();
+  const navigate = useNavigate();
+
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("refeição");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [img, setImg] = useState("");
 
   const [menu, setMenu] = useState(false);
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   
+
+  const isDisabled = !img || !title || !category || !price || !description || !tags;
+
+  function realToFloat(value) {
+    // Remove "R$", pontos e converte vírgula em ponto
+    const cleanValue = value.replace("R$", "").replace(/\./g, "").replace(",", ".");
+    
+    // Converte para float
+    return parseFloat(cleanValue);
+  }
+
+  async function handleCreate(e) {
+    e.preventDefault();
+    const dish = {
+      title,
+      category,
+      price: realToFloat(price),
+      description,
+      ingredients: tags
+    };
+    
+    try {
+      const {dish_id} = (await api.post("/dishes", dish)).data;
+      const fileUploadForm = new FormData();
+      fileUploadForm.append("img", img);  
+      await api.patch(`/dishes/${dish_id}`, fileUploadForm);
+      alert("Produto cadastrado com sucesso!");
+    } catch(error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        console.log(error);
+        alert("Erro ao cadastrar o produto!");
+      }
+    }
+    navigate("/");
+  }
   function handleNewTag() {
     setTags(prevState => [...prevState, newTag]);
     setNewTag("");
@@ -52,17 +99,25 @@ export function Create() {
             <Section title="Imagem do prato">
               <Input
                 type="file"
-                placeholder="Selecione imagem"
+                placeholder={img.name || "Selecione imagem"}
+                onChange={e => {
+                  setImg(e.target.files[0]);
+                  /* setImg(e.target.files[0].name) */
+                }}
               />
             </Section>
             <Section title="Nome">
               <Input
                 type="text"
                 placeholder="Ex.: Salada Ceasar"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
               />
             </Section>
             <Section title="Categoria">
-              <Select/>
+              <Select
+                onChange={e => setCategory(e.target.value)}
+              />
             </Section>
           </div>
           <div className={!isDesktop ? "flexContainer" : "cols2"}>
@@ -87,15 +142,22 @@ export function Create() {
               </TagContainer>
             </Section>
             <Section title="Preço">
-              <InputNumber/>
+              <InputNumber
+                value={price}
+                onChange={(e) => {
+                  setPrice(e.target.value)
+                }}  
+              />
             </Section>
           </div> 
           <Section title="Descrição">
             <TextArea 
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
             />
           </Section>
-          <Button disabled>
+          <Button onClick={handleCreate} disabled={isDisabled}>
             Salvar alterações
           </Button>
         </Content>

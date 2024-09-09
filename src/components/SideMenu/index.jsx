@@ -1,13 +1,16 @@
 import { Footer } from "../Footer";
+import { useAuth } from "../../hook/auth";
 import { InputAuth } from "../InputAuth";
 import { RiSearchLine } from "react-icons/ri";
 import { Container, NavButton, Content, StyledClose } from "./styles";
 import { useNavigate } from "react-router-dom";
-export function SideMenu({isMenuOpen, onCloseMenu, user}) {
+
+export function SideMenu({isMenuOpen, onCloseMenu}) {
   const navigate = useNavigate();
   function handleCreate() {
     navigate("/new");
   }
+  const { signOut, user } = useAuth();
 
   const role = user.role;
 
@@ -34,7 +37,7 @@ export function SideMenu({isMenuOpen, onCloseMenu, user}) {
                 Novo prato
               </NavButton>
           }
-          <NavButton>
+          <NavButton onClick={signOut}>
             Sair
           </NavButton>
             

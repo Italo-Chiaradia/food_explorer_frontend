@@ -1,24 +1,37 @@
-import dishes from "./dishes.json";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import BannerImg from "../../assets/banner.png";
-import { Category } from "../../components/Category";
+import { Slider } from "../../components/Slider";
 import { SideMenu } from "../../components/SideMenu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BREAKPOINTS from "../../utils/deviceBreakpoints";
 import BannerImgDesktop from "../../assets/banner-desktop.png";
 import { Container, Content, Banner, ScrollContent } from "./styles";
 
+import {api} from "../../services/api";
+import {useAuth} from "../../hook/auth";
 export function Home() {
-  const user = {role: "admin"}
-  const dishesArray = dishes.DISHES;
-
+  const {user} = useAuth();
+  
   const [menu, setMenu] = useState(false);
+  
+  const [dishes, setDishes] = useState([]);
+  const [search, setSearch] = useState("");
+  
+  useEffect(() => {
+    async function fetchDishes() {
+      const response = await api.get(`/dishes?title=${search}&ingredients=${search}`);
+      
+      setDishes(response.data);
+    }
+    fetchDishes();
+  }, [search]); 
+  
   return(
     <Container>
       <Header 
         onOpenMenu={() => setMenu(true)}
-        user={user}
+        search={setSearch}
       />
       <ScrollContent>
         <Content>
@@ -34,28 +47,42 @@ export function Home() {
               <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
             </div>
           </Banner>
-          <Category 
-            title="Refeições"
-            dishes={dishesArray}
-            user={user}
-          />
-          <Category 
-            title="Pratos principais"
-            dishes={dishesArray}
-            user={user}
-          />
-          <Category 
-            title="Bebidas"
-            dishes={dishesArray}
-            user={user}
-          />
+          {
+            dishes.filter(dish => dish.category === "refeição").length > 0 && (
+              <>
+                <h2>Refeições</h2>
+                <Slider
+                dishes={dishes.filter(dish => dish.category === "refeição")}
+                />
+              </>
+            )
+          }
+          {
+            dishes.filter(dish => dish.category === "prato principal").length > 0 && (
+              <>
+                <h2>Pratos principais</h2>
+                <Slider
+                dishes={dishes.filter(dish => dish.category === "prato principal")}
+                />
+              </>
+            )
+          }
+          {
+            dishes.filter(dish => dish.category === "bebida").length > 0 && (
+              <>
+                <h2>Bebidas</h2>
+                <Slider
+                dishes={dishes.filter(dish => dish.category === "bebida")}
+                />
+              </>
+            )
+          }
         </Content>
         <Footer/>
       </ScrollContent>
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
-        user={user}
       />
     </Container>
   )

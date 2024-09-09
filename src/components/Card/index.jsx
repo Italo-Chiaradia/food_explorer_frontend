@@ -9,8 +9,10 @@ import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoint
 import { Container, Footer, Image, Title, Price, TopCornerButton, Description } from "./styles";
 
 import torrada from "../../assets/torrada.png";
+import {useAuth} from "../../hook/auth";
 
-export function Card({user, data}) {
+export function Card({data}) {
+  const {user} = useAuth();
 
   const isDesktop = useMediaQuery({
     minWidth: formatDeviceBreakpoints(BREAKPOINTS.sm)
@@ -22,7 +24,7 @@ export function Card({user, data}) {
     <Container>
       <Image src={torrada} alt="Torrada de parma" />
 
-      <Title to="/details">
+      <Title to={`/details/${data.id}`}>
         {data.title + " >"}
       </Title>
       {
@@ -33,7 +35,7 @@ export function Card({user, data}) {
         )
       }
       <Price>
-        {"R$ " + data.price}
+        {"R$ " + data.price.toLocaleString("pt-BR", {minimumFractionDigits: 2, maximumFractionDigits: 2})}
       </Price>
 
       {

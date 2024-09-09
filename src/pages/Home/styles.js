@@ -25,8 +25,26 @@ export const ScrollContent = styled.div`
 `;
 
 export const Content = styled.main`
+  > h2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2.4rem;
+  }
+  @media (min-width: ${BREAKPOINTS.sm}) {
+    margin-bottom: 4.8rem;
+    > h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 2.4rem;
+    }
+  }
   grid-area: content;
   @media (min-width: ${BREAKPOINTS.sm}) {
+    width: 100%;
     max-width: min(90vw, 112rem);
     margin: 0 auto;
   }
