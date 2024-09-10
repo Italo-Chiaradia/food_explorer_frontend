@@ -166,7 +166,6 @@ export function Create() {
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
-        user={user}
       />
     </Container>
   )
