@@ -44,6 +44,7 @@ export const Footer = styled.footer`
 export const Image = styled.img`
   width: 8.8rem;
   height: 8.8rem;
+  border-radius: 50%;
   @media (min-width: ${BREAKPOINTS.sm}) {
     width: 17.6rem;
     height: 17.6rem;

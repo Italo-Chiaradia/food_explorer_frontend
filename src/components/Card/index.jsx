@@ -8,8 +8,8 @@ import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 import { Container, Footer, Image, Title, Price, TopCornerButton, Description } from "./styles";
 
-import torrada from "../../assets/torrada.png";
 import {useAuth} from "../../hook/auth";
+import {api} from "../../services/api.js";
 
 export function Card({data}) {
   const {user} = useAuth();
@@ -20,9 +20,11 @@ export function Card({data}) {
 
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const dishImg = `${api.defaults.baseURL}/files/${data.img}`;
+
   return (
     <Container>
-      <Image src={torrada} alt="Torrada de parma" />
+      <Image src={dishImg} alt={data.title} />
 
       <Title to={`/details/${data.id}`}>
         {data.title + " >"}
@@ -57,7 +59,7 @@ export function Card({data}) {
             }
           </TopCornerButton>
         ) : (
-          <TopCornerButton to="/update">
+          <TopCornerButton to={`/update/${data.id}`}>
             <img src={Edit}/>
           </TopCornerButton>
         )
