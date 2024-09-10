@@ -1,7 +1,5 @@
-import Dish from "../../assets/torrada.png";
-import {api} from "../../services/api";
+import { api } from "../../services/api";
 import { Tag } from "../../components/Tag";
-import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
@@ -9,11 +7,10 @@ import { Counter } from "../../components/Counter";
 import { useAuth } from "../../hook/auth.jsx";
 import BackArrow from "../../assets/svg/back-arrow.svg";
 import { SideMenu } from "../../components/SideMenu";
-import { useParams } from "react-router-dom";
 import { PiReceipt } from "react-icons/pi";
-import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive"; 
 import { useEffect,useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Container, ScrollContent, Content } from "./styles.js";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 
@@ -27,8 +24,9 @@ export function Details() {
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState({});
   
+
   function handleUpdate() {
-    navigate("/update");
+    navigate(`/update/${data.id}`);
   }
   
   useEffect(() => {
@@ -39,6 +37,8 @@ export function Details() {
     fetchDish()
   }, []);
 
+  const dishImg = data.img ? `${api.defaults.baseURL}/files/${data.img}` : "";
+  
   return (
     <Container>
       <Header 
@@ -51,7 +51,7 @@ export function Details() {
               <img src={BackArrow} />
               voltar
             </Link>
-            <img src={Dish} />
+            <img src={dishImg} />
           </div>
 
           <div className="dish-content">
