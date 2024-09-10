@@ -10,7 +10,7 @@ export function AdminRoutes() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/details/:id" element={<Details/>}/>
-      <Route path="/update" element={<Update/>}/>
+      <Route path="/update/:id" element={<Update/>}/>
       <Route path="/new" element={<Create/>}/>
 
       <Route path="*" element={<Navigate to="/"/>}/>

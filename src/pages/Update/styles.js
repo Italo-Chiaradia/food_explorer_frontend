@@ -25,6 +25,7 @@ export const ScrollContent = styled.div`
 `;
 
 export const Content = styled.form`
+  width: 100%;
   margin: 1.5rem 3.2rem 5rem;
   display: flex;
   flex-direction: column;
