@@ -19,6 +19,7 @@ export function Card({data}) {
   });
 
   const [isFavorite, setIsFavorite] = useState(false);
+  const [count, setCount] = useState(1);
 
   const dishImg = `${api.defaults.baseURL}/files/${data.img}`;
 
@@ -43,7 +44,10 @@ export function Card({data}) {
       {
         user.role !== "admin" && (
           <Footer>
-            <Counter/>
+            <Counter
+              count={count}
+              setCount={setCount}
+            />
             <Button>
               incluir
             </Button>

@@ -53,6 +53,7 @@ export const Image = styled.img`
 
 export const Title = styled(Link)`
   font-family: "Poppins", sans-serif;
+  color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 2.4rem;
@@ -93,6 +94,7 @@ export const Price = styled.span`
 `;
 
 export const TopCornerButton = styled(Link)`
+  color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
   position: absolute;
   right: 1.6rem;
   top: 1.6rem;

@@ -14,7 +14,6 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { Container, ScrollContent, Content } from "./styles.js";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 
-
 export function Details() {
   const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.md)});
   const navigate = useNavigate();
@@ -23,7 +22,25 @@ export function Details() {
   
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState({});
+  const [count, setCount] = useState(1);
+
+  function formatToCurrency(value) {
+    // Garantir que o valor é um número
+    if (isNaN(value)) {
+      throw new Error("O valor deve ser um número.");
+    }
   
+    // Definir as opções de formatação
+    const options = {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    };
+  
+    // Formatar o número como moeda brasileira
+    return new Intl.NumberFormat('pt-BR', options).format(value);
+  }
 
   function handleUpdate() {
     navigate(`/update/${data.id}`);
@@ -38,7 +55,7 @@ export function Details() {
   }, []);
 
   const dishImg = data.img ? `${api.defaults.baseURL}/files/${data.img}` : "";
-  
+
   return (
     <Container>
       <Header 
@@ -77,7 +94,10 @@ export function Details() {
                   </Button>
                 ) : (
                   <>
-                    <Counter/>
+                    <Counter
+                      count={count}
+                      setCount={setCount}
+                    />
                     <Button className="order-btn">
                       {
                         !isDesktop ? (
@@ -89,7 +109,7 @@ export function Details() {
                           <span>incluir • </span>
                         )
                       }
-                      <span>R$ 25,00</span>
+                      <span>{formatToCurrency(count * data.price)}</span>
                     </Button>
                   </>
                 )
