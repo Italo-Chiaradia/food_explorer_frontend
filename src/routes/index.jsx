@@ -3,7 +3,7 @@ import { useAuth } from "../hook/auth";
 import {AdminRoutes} from "./admin.routes";
 import {CustomerRoutes} from "./customer.routes";
 import {AuthRoutes} from "./auth.routes";
-import {USER_ROLE} from "../utils/roles.JS";
+import {USER_ROLE} from "../utils/roles.js";
 
 export function Routes() {
   const { user } = useAuth();
