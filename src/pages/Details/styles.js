@@ -34,6 +34,7 @@ export const Content = styled.div`
 
   > div.dish-image {
     > a {
+      color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
       display: flex;
       align-items: center;
       gap: 1rem;

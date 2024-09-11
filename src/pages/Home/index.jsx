@@ -26,7 +26,7 @@ export function Home() {
     }
     fetchDishes();
   }, [search]); 
-  
+
   return(
     <Container>
       <Header 
@@ -52,17 +52,17 @@ export function Home() {
               <>
                 <h2>Refeições</h2>
                 <Slider
-                dishes={dishes.filter(dish => dish.category === "refeição")}
+                  dishes={dishes.filter(dish => dish.category === "refeição")}
                 />
               </>
             )
           }
           {
-            dishes.filter(dish => dish.category === "prato principal").length > 0 && (
+            dishes.filter(dish => dish.category === "sobremesa").length > 0 && (
               <>
-                <h2>Pratos principais</h2>
+                <h2>Sobremesas</h2>
                 <Slider
-                dishes={dishes.filter(dish => dish.category === "prato principal")}
+                  dishes={dishes.filter(dish => dish.category === "sobremesa")}
                 />
               </>
             )
@@ -72,7 +72,7 @@ export function Home() {
               <>
                 <h2>Bebidas</h2>
                 <Slider
-                dishes={dishes.filter(dish => dish.category === "bebida")}
+                  dishes={dishes.filter(dish => dish.category === "bebida")}
                 />
               </>
             )
@@ -83,6 +83,7 @@ export function Home() {
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
+        search={setSearch}
       />
     </Container>
   )

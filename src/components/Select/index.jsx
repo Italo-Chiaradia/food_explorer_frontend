@@ -7,7 +7,7 @@ export function Select({title, ...rest}) {
       <SelectContainer>
         <select {...rest}>
           <option value="refeição">Refeição</option>
-          <option value="prato principal">Prato principal</option>
+          <option value="sobremesa">Sobremesa</option>
           <option value="bebida">Bebida</option>
         </select>
         <img src={DownArrow} />

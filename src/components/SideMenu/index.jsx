@@ -5,7 +5,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { Container, NavButton, Content, StyledClose } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-export function SideMenu({isMenuOpen, onCloseMenu}) {
+export function SideMenu({search, isMenuOpen, onCloseMenu}) {
   const navigate = useNavigate();
   function handleCreate() {
     navigate("/new");
@@ -29,6 +29,9 @@ export function SideMenu({isMenuOpen, onCloseMenu}) {
           icon={RiSearchLine}
           type="text"
           placeholder="Busque por pratos ou ingredientes"
+          onChange={
+            (e) => {search(e.target.value)}
+          }
         />
         <nav>
           {

@@ -23,11 +23,24 @@ export function Update() {
   const {user} = useAuth();
   const params = useParams();
   const navigate = useNavigate();
-  
 
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState({});
   
+  function convertCurrencyToFloat(value) {
+    // Remove the "R$" symbol and any spaces
+    value = value.replace("R$", "").trim();
+  
+    // Replace dots (.) used as thousand separators
+    value = value.replace(/\./g, "");
+  
+    // Replace commas (,) used as decimal separators with a dot
+    value = value.replace(",", ".");
+  
+    // Convert to float
+    return parseFloat(value);
+  }
+
   useEffect(() => {
     async function fetchDish() {
       const response = await api.get(`/dishes/${params.id}`);
@@ -38,7 +51,7 @@ export function Update() {
  
 
   const [title, setTitle] = useState();
-  const [price, setPrice] = useState();
+  let [price, setPrice] = useState();
   const [category, setCategory] = useState();
   const [description, setDescription] = useState();
 
@@ -66,13 +79,13 @@ export function Update() {
     e.preventDefault();
     try {
       await api.delete(`/dishes/${params.id}`);
-      alert(`${title} foi excluído do menu`);
+      alert(`${title} foi removido do menu`);
     } catch(error) {
       if (error.response) {
         alert(error.response.data.message);
       } else {
         console.log(error);
-        alert(`Erro ao excluir ${title} do menu!`);
+        alert(`Erro ao remover ${title} do menu!`);
       }
     }
     navigate("/");
@@ -86,7 +99,6 @@ export function Update() {
       description,
       ingredients: tags
     };
-    
     try {
       const {dish_id} = (await api.put(`/dishes/${params.id}`, dish)).data;
       if (img !== data.img) {
@@ -106,7 +118,7 @@ export function Update() {
     navigate("/");
   }
 
-  function handleNewTag() {
+  function handleNewTag(e) {
     setTags(prevState => [...prevState, newTag]);
     setNewTag("");
   }
@@ -114,9 +126,9 @@ export function Update() {
     setTags(prevTags => prevTags.filter(tag => tag != deleted));
   }
 
-  const isDisabled = !img || !title || !category || !price || !description || !tags;
+  const isDisabled = !img || !title || !category || !price || !description || tags.length == 0;
   const isDesktop = useMediaQuery({minWidth: formatDeviceBreakpoints(BREAKPOINTS.sm)});
-
+  
   return (
     <Container>
       <Header 
@@ -181,7 +193,7 @@ export function Update() {
             <Section title="Preço">
               <InputNumber
                 value={price}
-                onChange={e => setPrice(e.target.value)}
+                onChange={e => setPrice(convertCurrencyToFloat(e.target.value))}
               />
             </Section>
           </div> 

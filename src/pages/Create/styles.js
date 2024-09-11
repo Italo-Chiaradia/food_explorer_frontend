@@ -26,11 +26,12 @@ export const ScrollContent = styled.div`
 
 export const Content = styled.form`
   margin: 1.5rem 3.2rem 5rem;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
   > a {
+    color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
     display: flex;
     align-items: center;
     gap: .8rem;

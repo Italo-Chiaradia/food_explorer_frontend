@@ -18,6 +18,7 @@ import { Container, ScrollContent, Content, TagContainer } from "./styles.js";
 import {api} from "../../services/api.js";
 import {useAuth} from "../../hook/auth";
 
+
 export function Create() {
   const {user} = useAuth();
   const navigate = useNavigate();
@@ -59,13 +60,13 @@ export function Create() {
       const fileUploadForm = new FormData();
       fileUploadForm.append("img", img);  
       await api.patch(`/dishes/${dish_id}`, fileUploadForm);
-      alert("Produto cadastrado com sucesso!");
+      alert(`${title} foi adicionado ao menu`);
     } catch(error) {
       if (error.response) {
         alert(error.response.data.message);
       } else {
         console.log(error);
-        alert("Erro ao cadastrar o produto!");
+        alert(`Erro ao adicionar ${title} ao menu!`);
       }
     }
     navigate("/");

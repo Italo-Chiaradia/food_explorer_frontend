@@ -74,6 +74,7 @@ export const Logo = styled(Link)`
   div > h1 {
     font-size: 2.1rem;
     font-weight: 700;
+    color: ${({theme}) => theme.COLORS.LIGHT.LIGHT100};
   }
   > span {
     font-size: 1.2rem;
