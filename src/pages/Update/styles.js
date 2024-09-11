@@ -31,7 +31,7 @@ export const Content = styled.form`
   flex-direction: column;
   gap: 2.4rem;
   > a {
-    color: ${({theme}) => theme.COLOR.LIGHT.LIGHT300};
+    color: ${({theme}) => theme.COLORS.LIGHT.LIGHT300};
     display: flex;
     align-items: center;
     gap: .8rem;
@@ -90,6 +90,7 @@ export const Content = styled.form`
     }
   }
   @media (min-width: ${BREAKPOINTS.sm}) {
+    width: 100%;
     max-width: min(90vw, 112rem);
     margin-inline: auto;
     margin-top: 4rem;

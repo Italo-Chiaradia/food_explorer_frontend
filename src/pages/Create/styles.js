@@ -43,6 +43,7 @@ export const Content = styled.form`
     }
   }
   @media (min-width: ${BREAKPOINTS.sm}) {
+    width: 100%;
     max-width: min(90vw, 112rem);
     margin-inline: auto;
     margin-top: 4rem;

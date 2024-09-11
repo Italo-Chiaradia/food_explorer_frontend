@@ -42,9 +42,14 @@ export const Footer = styled.footer`
 `;
 
 export const Image = styled.img`
+  cursor: pointer;
   width: 8.8rem;
   height: 8.8rem;
   border-radius: 50%;
+  transition: filter .2s;
+  &:hover {
+    filter: brightness(.7);
+  }
   @media (min-width: ${BREAKPOINTS.sm}) {
     width: 17.6rem;
     height: 17.6rem;

@@ -1,15 +1,15 @@
 import Edit from "../../assets/svg/edit.svg";
+import { api } from "../../services/api.js";
+import { Link } from "react-router-dom";
 import Favorite from "../../assets/svg/favorite.svg";
 import { Button } from "../Button";
 import { Counter } from "../Counter";
+import { useAuth } from "../../hook/auth";
 import { useState } from "react";
 import NotFavorite from "../../assets/svg/not-favorite.svg";
 import { useMediaQuery } from "react-responsive";
 import BREAKPOINTS, {formatDeviceBreakpoints} from "../../utils/deviceBreakpoints";
 import { Container, Footer, Image, Title, Price, TopCornerButton, Description } from "./styles";
-
-import {useAuth} from "../../hook/auth";
-import {api} from "../../services/api.js";
 
 export function Card({data}) {
   const {user} = useAuth();
@@ -25,7 +25,9 @@ export function Card({data}) {
 
   return (
     <Container>
-      <Image src={dishImg} alt={data.title} />
+      <Link to={`/details/${data.id}`}>
+        <Image src={dishImg} alt={data.title} />
+      </Link>
 
       <Title to={`/details/${data.id}`}>
         {data.title + " >"}

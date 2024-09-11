@@ -1,3 +1,4 @@
+import {api} from "../../services/api";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import BannerImg from "../../assets/banner.png";
@@ -8,13 +9,9 @@ import BREAKPOINTS from "../../utils/deviceBreakpoints";
 import BannerImgDesktop from "../../assets/banner-desktop.png";
 import { Container, Content, Banner, ScrollContent } from "./styles";
 
-import {api} from "../../services/api";
-import {useAuth} from "../../hook/auth";
+
 export function Home() {
-  const {user} = useAuth();
-  
   const [menu, setMenu] = useState(false);
-  
   const [dishes, setDishes] = useState([]);
   const [search, setSearch] = useState("");
   

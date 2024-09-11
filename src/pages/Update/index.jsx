@@ -23,7 +23,7 @@ export function Update() {
   const {user} = useAuth();
   const params = useParams();
   const navigate = useNavigate();
-
+  const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState({});
   
@@ -133,7 +133,7 @@ export function Update() {
     <Container>
       <Header 
         onOpenMenu={() => setMenu(true)}
-        user={user}
+        search={setSearch}
       />
       <ScrollContent>
         <Content>
@@ -218,6 +218,7 @@ export function Update() {
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
+        search={setSearch}
       />
     </Container>
   )

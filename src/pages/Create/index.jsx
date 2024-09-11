@@ -20,8 +20,9 @@ import {useAuth} from "../../hook/auth";
 
 
 export function Create() {
-  const {user} = useAuth();
   const navigate = useNavigate();
+
+  const [search, setSearch] = useState("");
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("refeição");
@@ -85,7 +86,7 @@ export function Create() {
     <Container>
       <Header 
         onOpenMenu={() => setMenu(true)}
-        user={user}
+        search={setSearch}
       />
       <ScrollContent>
         <Content>
@@ -167,6 +168,7 @@ export function Create() {
       <SideMenu
         onCloseMenu={() => setMenu(false)}
         isMenuOpen={menu}
+        search={setSearch}
       />
     </Container>
   )

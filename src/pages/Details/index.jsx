@@ -19,7 +19,7 @@ export function Details() {
   const navigate = useNavigate();
   const params = useParams();
   const {user} = useAuth();
-  
+  const [search, setSearch] = useState("");
   const [menu, setMenu] = useState(false);
   const [data, setData] = useState({});
   const [count, setCount] = useState(1);
@@ -27,7 +27,7 @@ export function Details() {
   function formatToCurrency(value) {
     // Garantir que o valor é um número
     if (isNaN(value)) {
-      throw new Error("O valor deve ser um número.");
+      return;
     }
   
     // Definir as opções de formatação
@@ -60,6 +60,7 @@ export function Details() {
     <Container>
       <Header 
         onOpenMenu={() => setMenu(true)}
+        search={setSearch}
       />
       <ScrollContent>
         <Content>
@@ -122,6 +123,7 @@ export function Details() {
       <SideMenu
         isMenuOpen={menu}
         onCloseMenu={() => setMenu(false)}
+        search={setSearch}
       />
     </Container>
   )
