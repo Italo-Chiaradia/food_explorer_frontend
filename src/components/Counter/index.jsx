@@ -1,8 +1,6 @@
 import { Container } from "./styles";
 import Minus from "../../assets/svg/minus.svg";
-import Plus from "../../assets/svg/Plus.svg";
-
-import {useState} from "react";
+import Plus from "../../assets/svg/plus.svg";
 
 export function Counter({setCount, count}) {
   
