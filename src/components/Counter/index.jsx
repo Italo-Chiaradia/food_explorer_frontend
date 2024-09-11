@@ -1,16 +1,11 @@
 import { Container } from "./styles";
-
-/* import { PiMinusThin as Plus } from "react-icons/pi";
-import { PiPlusThin as Minus } from "react-icons/pi"; */
 import Minus from "../../assets/svg/minus.svg";
 import Plus from "../../assets/svg/Plus.svg";
 
 import {useState} from "react";
 
-export function Counter() {
-
-  const [count, setCount] = useState(1);
-
+export function Counter({setCount, count}) {
+  
   function handlePlusCount() {
     if (count == 99) {
       setCount(0);
